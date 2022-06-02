@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CGSSTools", "CGSSTools\CGSSTools.csproj", "{F5967E12-5270-4952-9336-0A12D1D48DCE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CGSSTools.ResetMarathon", "CGSSTools.Debug\CGSSTools.ResetMarathon.csproj", "{DF649120-98A9-4421-8887-EE328A9B8F6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CGSSTools.ResetMarathon", "CGSSTools.ResetMarathon\CGSSTools.ResetMarathon.csproj", "{DF649120-98A9-4421-8887-EE328A9B8F6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
