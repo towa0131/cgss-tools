@@ -60,22 +60,14 @@ namespace CGSSTools
                 key += rand.Next(0, 10).ToString();
             }
 
-            // Console.WriteLine(this.udid);
             byte[] msg_iv = Binary.StringToBytes(this.udid);
 
             byte[] e256 = System.Convert.FromBase64String(Rijndael.Encrypt256(
                         Encoding.UTF8.GetBytes(plain),
                         Encoding.UTF8.GetBytes(key),
                         msg_iv));
-            // Console.WriteLine(Rijndael.Encrypt256(
-            //             Encoding.UTF8.GetBytes(plain),
-            //             Encoding.UTF8.GetBytes(key),
-            //             msg_iv));
             byte[] b64key = Encoding.UTF8.GetBytes(key);
             byte[] rv = new byte[e256.Length + b64key.Length];
-
-            // Console.WriteLine(e256.Length);
-            // Console.WriteLine(b64key.Length);
 
             System.Buffer.BlockCopy(e256, 0, rv, 0, e256.Length);
             System.Buffer.BlockCopy(b64key, 0, rv, e256.Length, b64key.Length);
@@ -116,14 +108,10 @@ namespace CGSSTools
             byte[] src = System.Convert.FromBase64String(response);
             byte[] bytekey = new byte[32];
             byte[] context = new byte[src.Length - 32];
-            // Console.WriteLine(System.Convert.ToBase64String(bytekey));
-            // Console.WriteLine(key);
             System.Buffer.BlockCopy(src, src.Length - 32, bytekey, 0, 32);
             System.Buffer.BlockCopy(src, 0, context, 0, src.Length - 32);
 
             plain = Rijndael.Decrypt256(context, bytekey, msg_iv);
-
-            // Console.WriteLine(System.Convert.ToBase64String(context));
 
             byte[] plainBytes = System.Convert.FromBase64String(plain);
 
@@ -137,10 +125,7 @@ namespace CGSSTools
 
             res = JsonMapper.ToJson(result);
 
-            // Console.WriteLine(res); // DEBUG
-
             return res;
-
         }
 
         public string Post(string url, Dictionary<string, string> headers, string body)
