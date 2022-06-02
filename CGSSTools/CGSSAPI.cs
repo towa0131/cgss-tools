@@ -10,7 +10,7 @@ namespace CGSSTools
     public class CGSSAPI
     {
         public const string BASE_URL = "https://apis.game.starlight-stage.jp";
-        public const int RES_VER = 10096500;
+        public const int RES_VER = 10096600;
         public const string APP_VER = "7.8.0";
         public const string WC_VER = "2020.3.8f1";
 
