@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CGSSTools", "CGSSTools\CGSSTools.csproj", "{F5967E12-5270-4952-9336-0A12D1D48DCE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CGSSTools.ResetMarathon", "CGSSTools.Debug\CGSSTools.ResetMarathon.csproj", "{DF649120-98A9-4421-8887-EE328A9B8F6A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5967E12-5270-4952-9336-0A12D1D48DCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5967E12-5270-4952-9336-0A12D1D48DCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5967E12-5270-4952-9336-0A12D1D48DCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5967E12-5270-4952-9336-0A12D1D48DCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF649120-98A9-4421-8887-EE328A9B8F6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF649120-98A9-4421-8887-EE328A9B8F6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF649120-98A9-4421-8887-EE328A9B8F6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF649120-98A9-4421-8887-EE328A9B8F6A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {40F80510-BE13-487B-8EEA-94F5949E99D8}
+	EndGlobalSection
+EndGlobal
