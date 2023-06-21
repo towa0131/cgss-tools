@@ -10,12 +10,13 @@ namespace CGSSTools
     public class CGSSAPI
     {
         public const string BASE_URL = "https://apis.game.starlight-stage.jp";
-        public const int RES_VER = 10096600;
-        public const string APP_VER = "7.8.0";
+        public const string APP_VER = "8.8.4";
         public const string WC_VER = "2020.3.8f1";
 
         public const string VIEWER_ID_KEY = "s%5VNQ(H$&Bqb6#3+78h29!Ft4wSg)ex";
         public const string SID_SALT = "r!I@nt8e5i=";
+
+        public int resVer = 10110000;
 
         protected string udid = "";
         protected int viewerId = 0;
@@ -89,7 +90,7 @@ namespace CGSSTools
             { "PARAM", Binary.sha1(this.udid + this.viewerId.ToString() + endpoint + plain) },
             { "DEVICE", "1" },
             { "APP-VER", CGSSAPI.APP_VER },
-            { "RES-VER", CGSSAPI.RES_VER.ToString() },
+            { "RES-VER", this.resVer.ToString() },
             { "DEVICE-ID", Binary.md5("Totally a real Android") },
             { "DEVICE-NAME", "Nexus 42" },
             { "GRAPHICS-DEVICE-NAME", "3dfx Voodoo2 (TM)" },
@@ -142,6 +143,16 @@ namespace CGSSTools
             var response = client.SendAsync(request).Result;
 
             return response.Content.ReadAsStringAsync().Result;
+        }
+
+        public int GetResourceVersion()
+        {
+            return this.resVer;
+        }
+
+        public void SetResourceVersion(int resVer)
+        {
+            this.resVer = resVer;
         }
     }
 }

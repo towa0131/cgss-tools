@@ -31,6 +31,7 @@ namespace CGSSTools.Debug
             if ((int)dic["data_headers"]["result_code"] != 1)
             {
                 Console.WriteLine("[-] アカウント作成に失敗しました");
+                Console.ReadLine();
                 return;
             }
 
@@ -59,6 +60,7 @@ namespace CGSSTools.Debug
             if ((int)dic["data_headers"]["result_code"] != 1)
             {
                 Console.WriteLine("[-] ログインに失敗しました");
+                Console.ReadLine();
                 return;
             }
 
@@ -99,6 +101,7 @@ namespace CGSSTools.Debug
                 else
                 {
                     Console.WriteLine("[-] チュートリアル " + i + " を失敗");
+                    Console.ReadLine();
                     return;
                 }
             }
@@ -133,6 +136,7 @@ namespace CGSSTools.Debug
             else
             {
                 Console.WriteLine("[-] 引継ぎパスワードの設定に失敗しました");
+                Console.ReadLine();
                 return;
             }
 
@@ -147,12 +151,21 @@ namespace CGSSTools.Debug
             };
 
             api.Call(arg, "/load/check");
-
             dic = JsonMapper.ToObject(api.Call(arg, "/load/index"));
+
+            if (dic["data_headers"].ContainsKey("required_res_ver"))
+            {
+                string resVer = (string)dic["data_headers"]["required_res_ver"];
+                Console.WriteLine("[*] 新しいリソースバージョンを検出しました");
+                Console.WriteLine("[*] " + api.GetResourceVersion() + " -> " + resVer);
+                api.SetResourceVersion(int.Parse(resVer));
+                dic = JsonMapper.ToObject(api.Call(arg, "/load/index"));
+            }
 
             if ((int)dic["data_headers"]["result_code"] != 1)
             {
                 Console.WriteLine("[-] ログインに失敗しました");
+                Console.ReadLine();
                 return;
             }
 
@@ -178,6 +191,7 @@ namespace CGSSTools.Debug
             else
             {
                 Console.Write("[-] プレゼントのチェックに失敗しました");
+                Console.ReadLine();
                 return;
             }
 
@@ -200,6 +214,7 @@ namespace CGSSTools.Debug
             else
             {
                 Console.Write("[-] プレゼントの受け取りに失敗しました");
+                Console.ReadLine();
                 return;
             }
 
@@ -246,6 +261,7 @@ namespace CGSSTools.Debug
             else
             {
                 Console.Write("[-] ガシャ一覧の取得に失敗しました");
+                Console.ReadLine();
                 return;
             }
 
@@ -278,11 +294,13 @@ namespace CGSSTools.Debug
                 else
                 {
                     Console.WriteLine("[-] ガシャを引くことができませんでした");
+                    Console.ReadLine();
                     return;
                 }
             }
 
             Console.WriteLine("[+] ガシャを終了します");
+            Console.ReadLine();
         }
 
         static Dictionary<string, object> GetTutorialArgs(int step)
